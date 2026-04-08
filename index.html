@@ -1,47 +1,248 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-    <head>
-        <!-- Meta -->
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="theme-color" content="#7b68ee">
-        <meta name="og:title" content="sha4ek">
-        <meta name="og:image" content="assets/img/icon.ico">
-        <meta name="og:description" content="Coder from the Far East">
-        <!-- Styles -->
-        <link rel="stylesheet" href="assets/css/index.css">
-        <script src="https://kit.fontawesome.com/c05690f7b7.js" crossorigin="anonymous"></script>
-        <!-- Title -->
-        <title>Sha4ek | Shnipibup</title>
-        <link rel="icon" href="assets/img/icon.ico">
-    </head>
-    <body>
-        <!-- Navbar -->
-        <div class="navbar">
-            <div class="flex">
-                <a href="/" class="home flex">
-                    <img src="assets/img/icon.png">
-                    <p>&nbsp;Sha4ek</p>
-                </a>
-                <ul>
-                    <a href="projects"><i class="fa-regular fa-folder-open"></i>&nbsp;Проекты</a>
-                    <a href="teams"><i class="fa-regular fa-user"></i>&nbsp;Команды</a>
-                </ul>
-            </div>
+  <head>
+    <!-- Meta -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#7b68ee" />
+    <meta name="og:title" content="Александр Шарф" />
+    <meta name="og:image" content="assets/icon.ico" />
+    <!-- Styles -->
+    <script src="assets/scripts.js" async></script>
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- Title -->
+    <title>scarffik</title>
+    <link rel="icon" type="image/png" href="assets/icon.ico" />
+  </head>
+  <body>
+    <div id="loader">
+      <div class="spinner"></div>
+    </div>
+    <canvas id="bgCanvas"></canvas>
+    <div class="cursor"></div>
+
+    <div class="container">
+      <!-- Navigation -->
+      <div class="nav">
+        <div
+          style="display: flex; align-items: center; gap: 10px; cursor: pointer"
+        >
+          <img
+            src="assets/icon.png"
+            alt="icon"
+            style="width: 28px; height: 28px; border-radius: 6px"
+          />
+          <b>scarffik</b>
         </div>
-        <!-- Main | About -->
-        <div class="main">
-            <p>Здарова! Я Саша, недокодер с Дальнего Востока. Мне 16 лет. Увлекаюсь чтением книг (включая мангу и манхву), танцами и программированием. Из ЯПов я знаю только Python на базовом уровне, но также изучаю JavaScript. Кроме всего этого веду коморку, некий блог, в телеграме и поддерживаю свой дискорд-сервер. Ссылки для связи указаны ниже:</p>
-            <br>
-            <ul>
-                <a href="https://t.me/sha4ek"><i class="fa-brands fa-telegram"></i>&nbsp;Телеграм</a>
-                <a href="https://discord.com/users/546502974499717122"><i class="fa-brands fa-discord"></i>&nbsp;Дискорд</a>
-                <a href="https://vk.com/sha4ek"><i class="fa-brands fa-vk"></i>&nbsp;Вконтакте</a>
-            </ul>
+        <div class="nav-links">
+          <a href="#about">Обо мне</a>
+          <a href="#projects">Проекты</a>
+          <a href="#contacts">Контакты</a>
         </div>
-        <!-- Footer -->
-        <div class='footer'>
-            <p>&copy; 2021-2023 Sha4ek</p>
+
+        <div class="burger">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </body>
+      </div>
+
+      <!-- Hero -->
+      <div class="hero">
+        <h1>Александр Шарф</h1>
+        <p id="typing"></p>
+        <button onclick="scrollToSection()">Смотреть дальше</button>
+      </div>
+
+      <!-- About -->
+      <div id="about" class="section">
+        <h2 class="section-title">Обо мне</h2>
+        <div class="grid">
+          <div class="card">
+            <h2>Описание</h2>
+            <p>
+              Мне 19 лет. Увлекаюсь чтением книг и манги, просмотром фильмов и
+              сериалов, игрой в видео- и настольные игры – в целом, люблю
+              хороший контент. Занимаюсь хореографией и программированием.
+              Постепенно возвращаюсь в разработку после продолжительного
+              перерыва.
+            </p>
+          </div>
+
+          <div class="card skills">
+            <h2>Навыки</h2>
+            <span class="skill" data-tooltip="Боты, парсинг, API">
+              <i class="fab fa-python"></i>Python
+            </span>
+            <span class="skill" data-tooltip="DOM, базовый фронтенд">
+              <i class="fab fa-js-square"></i>JavaScript
+            </span>
+            <span class="skill" data-tooltip="Адаптивная вёрстка">
+              <i class="fab fa-html5"></i>HTML / CSS
+            </span>
+
+            <h2>Инструменты</h2>
+            <span class="skill" data-tooltip="GitHub">
+              <i class="fab fa-github"></i>Git
+            </span>
+            <span class="skill" data-tooltip="Discord API, Telegram API">
+              <i class="fas fa-plug"></i>REST API
+            </span>
+            <span class="skill" data-tooltip="Работа с данными">
+              <i class="fas fa-code"></i>JSON
+            </span>
+
+            <h2>Направления</h2>
+            <span class="skill" data-tooltip="Основы">
+              <i class="fas fa-shield-alt"></i>Кибербезопасность
+            </span>
+            <span class="skill" data-tooltip="TCP/IP, HTTP">
+              <i class="fas fa-network-wired"></i>Сетевые протоколы
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div id="projects" class="section">
+        <h2 class="section-title">Проекты</h2>
+        <div class="grid">
+          <!-- Website -->
+          <div class="card project-card">
+            <h2>Адаптивный сайт</h2>
+            <p class="status">🟢 Активный</p>
+            <p class="stack">HTML / CSS • JavaScript</p>
+            <a
+              href="https://github.com/sha4ek/sha4ek.github.io"
+              target="_blank"
+              class="link-btn"
+            >
+              <i class="fab fa-github"></i>Исходный код
+            </a>
+            <p class="description">
+              Мини-площадка для экспериментов и сборник различных проектов.
+            </p>
+          </div>
+
+          <!-- Telegram канал -->
+          <div class="card project-card">
+            <h2>ТГК «Еглопа»</h2>
+            <p class="status">🟢 Активный</p>
+            <p class="stack">AI • Работа с информацией</p>
+            <a href="https://t.me/eglopa" target="_blank" class="link-btn">
+              <i class="fab fa-telegram"></i>Перейти к нам
+            </a>
+            <p class="description">
+              Канал с периодическим контентом в плане абсурдных мемов и жизненых
+              ситуаций админов.
+            </p>
+          </div>
+
+          <!-- Трекер фильмов -->
+          <div class="card project-card">
+            <h2>Трекер фильмов</h2>
+            <p class="status">🟡 В разработке</p>
+            <p class="stack">HTML / CSS • JavaScript</p>
+            <a href="https://t.me/eglopa" target="_blank" class="link-btn">
+              <i class="fab fa-telegram"></i>Следить за разработкой
+            </a>
+            <p class="description">
+              Веб-приложение для отслеживания просмотренных фильмов. Сейчас
+              реализуется база данных и интерфейс.
+            </p>
+          </div>
+
+          <!-- Discord-бот -->
+          <div class="card project-card">
+            <h2>Discord-бот</h2>
+            <p class="status">🔵 Заморожен</p>
+            <p class="stack">Python • Discord API</p>
+            <a
+              href="https://github.com/sha4ek/CoffeBot-v1.5"
+              target="_blank"
+              class="link-btn"
+            >
+              <i class="fab fa-github"></i>Исходный код
+            </a>
+            <p class="description">
+              Бот с системой команд и взаимодействием через Discord API.
+              Реализована основная логика обработки сообщений. Дал опыт работы с
+              API и асинхронностью.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contacts -->
+      <div id="contacts" class="section">
+        <h2 class="section-title">Связь</h2>
+        <div class="grid">
+          <div class="card">
+            <h2>Контакты</h2>
+            <p>Открыт к общению и предложениям.</p>
+
+            <a
+              href="https://t.me/scarffik"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn"
+            >
+              <i class="fab fa-telegram"></i>Telegram
+            </a>
+
+            <a
+              href="https://github.com/scarffik"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn"
+            >
+              <i class="fab fa-github"></i>GitHub
+            </a>
+
+            <a
+              href="https://discord.com/users/546502974499717122"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn"
+            >
+              <i class="fab fa-discord"></i>Discord
+            </a>
+
+            <a
+              href="https://vk.com/scarffik"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn"
+            >
+              <i class="fab fa-vk"></i>VK
+            </a>
+
+            <a
+              href="https://steamcommunity.com/id/scarffik/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="link-btn"
+            >
+              <i class="fab fa-steam"></i>Steam
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div class="footer-content">
+          <p>&copy; 2026 scarffik</p>
+          <p class="footer-note">Без идеала, но с прогрессом</p>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
